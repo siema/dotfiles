@@ -1,0 +1,33 @@
+[push]
+    default = simple
+    followTags = true
+
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+
+[core]
+    autocrlf = input
+
+[color]
+    interactive = true
+    branch = true
+    status = true
+
+[alias]
+    a = add
+    aa = add --all
+    ci = commit
+    cia = commit -a
+    ciam = commit -am
+    cim = commit --amend
+    co = checkout
+    f = fetch
+    r = rebase
+
+    restash = !git stash && git rebase && git stash pop
+    lasttag = !git log --oneline `git tag | tail -1`..HEAD
+    lt = !git lasttag
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+
