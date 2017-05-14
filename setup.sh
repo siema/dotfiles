@@ -19,7 +19,7 @@ if [ "$(uname -s)" = "Linux" ]; then
 elif [ "$(uname -s)" = "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install ruby cloc cmake gcc git imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions
-    brew cask install google-chrome iterm2 sublime-text tunnelblick caskroom/fonts/font-dejavu-sans caskroom/fonts/font-dejavu-sans-mono-for-powerline
+    brew cask install google-chrome iterm2 sublime-text tunnelblick shitfit caskroom/fonts/font-dejavu-sans caskroom/fonts/font-dejavu-sans-mono-for-powerline
 fi
 
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
