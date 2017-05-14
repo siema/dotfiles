@@ -20,11 +20,12 @@
     aa = add --all
     ci = commit
     cia = commit -a
-    ciam = commit -am
-    cim = commit --amend
+    cia = commit -am
+    cim = commit -m
     co = checkout
     f = fetch
     r = rebase
+    st = status
 
     restash = !git stash && git rebase && git stash pop
     lasttag = !git log --oneline `git tag | tail -1`..HEAD

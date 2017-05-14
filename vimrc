@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " GitHub plugins
+Plugin 'bumaociyuan/vim-swift'
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
@@ -16,7 +17,6 @@ Plugin 'tfnico/vim-gradle'
 
 " vim.org/vim-scripts.org plugins
 Plugin 'AfterColors.vim'
-Plugin 'groovyindent'
 
 call vundle#end()
 filetype plugin indent on
