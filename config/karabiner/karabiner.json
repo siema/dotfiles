@@ -6,7 +6,28 @@
     },
     "profiles": [
         {
-            "devices": [],
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 65535,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 592,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false
+                }
+            ],
             "fn_function_keys": {
                 "f1": "display_brightness_decrement",
                 "f10": "mute",
@@ -25,7 +46,9 @@
             "selected": true,
             "simple_modifications": {
                 "end": "f20",
-                "home": "f19"
+                "grave_accent_and_tilde": "non_us_backslash",
+                "home": "f19",
+                "non_us_backslash": "grave_accent_and_tilde"
             },
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,

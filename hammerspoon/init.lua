@@ -43,6 +43,11 @@ hs.hotkey.bind({"shift"}, "F20", function()
     end
 end)
 
+-- ## Ctrl-Shift-F12 to lock screen
+hs.hotkey.bind({"ctrl", "shift"}, "F12", function()
+    os.execute("/Users/siema/.bin/lockscreen")
+end)
+
 -- ## Window Tiling
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "s", function()
     local window = hs.window.focusedWindow()
