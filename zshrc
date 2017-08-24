@@ -71,7 +71,7 @@ alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn r
 
 # technically an alias with parameter :v
 ssht(){
-    ssh $1 -t 'tmux a || tmux'
+    ssh $1 -t 'LANG=en_US.UTF-8 tmux a || LANG=en_US.UTF-8 tmux'
 }
 
 # ===== exports =====

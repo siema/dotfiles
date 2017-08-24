@@ -1,3 +1,14 @@
+-- ## Set window
+hs.hotkey.bind({}, "F15", function()
+    local window = hs.window.focusedWindow()
+    local bundleId = currentBundleID()
+    if bundleId == "com.apple.QuickTimePlayerX" then
+        window:setFrame(hs.geometry.rect(1082.0,109.0,502.0,890.0), 0)
+    elseif bundleId == "net.arena.Guild-Wars-2" then
+        window:setFrame(hs.geometry.rect(277.0,100.0,1366.0,790.0), 0)
+    end
+end)
+
 -- ## Normal Home/End keys behavior
 currentBundleID = function()
     return hs.application.frontmostApplication():bundleID() 
