@@ -31,6 +31,9 @@ _comp_options+=(globdots)
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+# dircolors
+[[ -e ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors)
+
 # fancy prompt with vi mode
 VIMODE='I'
 function zle-line-init zle-keymap-select
