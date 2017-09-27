@@ -4,9 +4,9 @@ ln -sf ~/.dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/.dotfiles/vimrc ~/.vimrc
 ln -sf ~/.dotfiles/zshrc ~/.zshrc
-ln -sf ~/.dotfiles/dircolors ~/.dircolors
 
 if [ "$(uname -s)" = "Linux" ]; then
+    ln -sf ~/.dotfiles/dircolors ~/.dircolors
     if hash sudo 2>/dev/null; then
         SU_CMD="sudo"
     else
@@ -22,8 +22,9 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     ln -sf ~/.dotfiles/hammerspoon ~/.hammerspoon
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ruby cloc cmake gcc git imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions
-    brew cask install google-chrome iterm2 sublime-text tunnelblick karabiner-elements hammerspoon caskroom/fonts/font-dejavu-sans caskroom/fonts/font-dejavu-sans-mono-for-powerline
+    brew install ruby cloc cmake gcc git imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions grep mas --with-default-names
+    brew cask install google-chrome firefox opera dropbox skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon font-dejavu-sans font-dejavu-sans-mono-for-powerline steam spotify discord teamspeak-client veracrypt filezilla virtualbox virtualbox-extension-pack wine-staging disk-inventory-x adobe-acrobat-reader 0xed minecraft disk-arbitrator mpv deluge android-studio
+    sudo gem install cocoapods
 fi
 
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell

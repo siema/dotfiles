@@ -32,7 +32,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # dircolors
-[[ -e ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors)
+if [[ -z $OS_MAC ]]; then 
+    [[ -e ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors)
+fi
 
 # fancy prompt with vi mode
 VIMODE='I'
@@ -101,7 +103,6 @@ export AW_PLUGIN_MANAGER_PATH="$HOME/projects/multi/AWPluginManager"
 
 # PATH
 if [[ -n $OS_MAC ]]; then
-    export PATH="$(brew --prefix php70)/bin:$PATH"
     export PATH="/usr/local/sbin:$PATH"
     export PATH="/usr/local/bin:$PATH"
 fi
