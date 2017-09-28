@@ -23,7 +23,7 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
     ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install ruby cloc cmake gcc git imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions grep mas --with-default-names
+    brew install ruby cloc cmake gcc git gradle imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions grep mas --with-default-names
     brew cask install google-chrome firefox opera dropbox skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon font-dejavu-sans font-dejavu-sans-mono-for-powerline steam spotify discord teamspeak-client veracrypt filezilla virtualbox virtualbox-extension-pack wine-staging disk-inventory-x adobe-acrobat-reader 0xed minecraft disk-arbitrator mpv deluge android-studio guild-wars2
     sudo gem install cocoapods
 fi
