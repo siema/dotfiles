@@ -14,6 +14,7 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tfnico/vim-gradle'
+Plugin 'darfink/vim-plist'
 
 " vim.org/vim-scripts.org plugins
 Plugin 'AfterColors.vim'

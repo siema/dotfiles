@@ -24,7 +24,11 @@ SAVEHIST=1000
 # completion
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
-compinit
+if [[ -n $OS_LINUX ]]; then 
+    compinit
+else
+    compinit -u
+fi
 _comp_options+=(globdots)
 
 # Base16 Shell
@@ -100,6 +104,7 @@ export NDK_HOME="$HOME/android/sdk/ndk-bundle"
 # AWEngine
 export AW_ENGINE_PATH="$HOME/projects/multi/AWEngine"
 export AW_PLUGIN_MANAGER_PATH="$HOME/projects/multi/AWPluginManager"
+export TC_RESKIN_PATH="$HOME/projects/multi/TCReskin"
 
 # PATH
 if [[ -n $OS_MAC ]]; then
