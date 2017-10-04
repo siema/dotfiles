@@ -14,7 +14,7 @@ if [ "$(uname -s)" = "Linux" ]; then
     fi
 
     if hash pacman 2>/dev/null; then
-        $SU_CMD pacman -S cloc cmake git imagemagick nodejs p7zip perl python python3 ruby subversion tmux vim wget zsh ttf-dejavu
+        $SU_CMD pacman -S cloc cmake git imagemagick nodejs p7zip perl python python3 ruby subversion tmux vim wget zsh ttf-dejavu htop
     elif hash apt-get 2>/dev/null; then
         $SU_CMD apt-get install cloc cmake git imagemagick nodejs p7zip perl pidcat python python3 ruby subversion tmux vim wget zsh fonts-dejavu
     fi
