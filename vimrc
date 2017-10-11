@@ -32,7 +32,7 @@ syntax on
 set t_Co=256
 let base16colorspace=256
 set background=dark
-colors base16-default-dark
+:silent! colors base16-default-dark
 hi Normal ctermbg=none     " don't override background
 
 "===== general stuff =====
