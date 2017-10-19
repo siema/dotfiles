@@ -7,6 +7,8 @@ ln -sf ~/.dotfiles/zshrc ~/.zshrc
 
 if [ "$(uname -s)" = "Linux" ]; then
     ln -sf ~/.dotfiles/dircolors ~/.dircolors
+    ln -sf ~/.dotfiles/config/awesome ~/.config/awesome
+    ln -sf ~/.dotfiles/config/termite ~/.config/termite
     if hash sudo 2>/dev/null; then
         SU_CMD="sudo"
     else
