@@ -78,6 +78,13 @@ alias du='du -h'
 alias pidcat='pidcat --always-display-tags'
 alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn rm'
 
+if [[ -n $OS_LINUX ]]; then
+    alias poweroff='systemctl poweroff'
+    alias restart='systemctl restart'
+    alias suspend='systemctl suspend'
+    alias hibernate='systemctl hibernate'
+fi
+
 # technically an alias with parameter :v
 ssht(){
     ssh $1 -t 'LANG=en_US.UTF-8 tmux a || LANG=en_US.UTF-8 tmux'
@@ -113,6 +120,7 @@ if [[ -n $OS_MAC ]]; then
 fi
 
 export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/tools/bin:$PATH"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/build-tools/latest:$PATH"
 export PATH="$NDK_HOME:$PATH"
@@ -157,4 +165,8 @@ if [[ -n $OS_MAC ]]; then
     # completion on Mac
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
+
+# Custom configuration
+ZSHRC_CUSTOM="$HOME/.zshrc_custom"
+[[ -s $ZSHRC_CUSTOM ]] && source $ZSHRC_CUSTOM
 
