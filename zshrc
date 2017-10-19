@@ -36,11 +36,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # dircolors
-if [[ -z $OS_MAC ]]; then 
+if command -v dircolors &>/dev/null; then 
     [[ -e ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors)
 fi
 
 # fancy prompt with vi mode
+bindkey -v
 VIMODE='I'
 function zle-line-init zle-keymap-select
 {
@@ -56,79 +57,7 @@ function zle-line-init zle-keymap-select
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# ===== aliases =====
-
-# some colors
-if [[ -z $OS_MAC ]]; then 
-    alias ls='ls --color=auto'
-fi
-
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-# make it human readable
-alias ll='ls -lh'
-alias df='df -h'
-alias du='du -h'
-
-# misc aliases
-alias pidcat='pidcat --always-display-tags'
-alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn rm'
-
-if [[ -n $OS_LINUX ]]; then
-    alias poweroff='systemctl poweroff'
-    alias restart='systemctl restart'
-    alias suspend='systemctl suspend'
-    alias hibernate='systemctl hibernate'
-fi
-
-# technically an alias with parameter :v
-ssht(){
-    ssh $1 -t 'LANG=en_US.UTF-8 tmux a || LANG=en_US.UTF-8 tmux'
-}
-
-# ===== exports =====
-
-# enable shell colors for BSD/Mac tools (ls etc...)
-export CLICOLOR=1
-
-# wait 0.1s after key instead of 0.4
-export KEYTIMEOUT=1
-
-# vim4lyfe
-bindkey -v
-export VISUAL='vim'
-export EDITOR='vim'
-export SVN_EDITOR='vim -c "set syntax=diff"'
-
-# android and ndk
-export ANDROID_HOME="$HOME/android/sdk"
-export NDK_HOME="$HOME/android/sdk/ndk-bundle"
-
-# AWEngine
-export AW_ENGINE_PATH="$HOME/projects/multi/AWEngine"
-export AW_PLUGIN_MANAGER_PATH="$HOME/projects/multi/AWPluginManager"
-export TC_RESKIN_PATH="$HOME/projects/multi/TCReskin"
-
-# PATH
-if [[ -n $OS_MAC ]]; then
-    export PATH="/usr/local/sbin:$PATH"
-    export PATH="/usr/local/bin:$PATH"
-fi
-
-export PATH="$ANDROID_HOME/tools:$PATH"
-export PATH="$ANDROID_HOME/tools/bin:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-export PATH="$ANDROID_HOME/build-tools/latest:$PATH"
-export PATH="$NDK_HOME:$PATH"
-export PATH="$HOME/.bin:$PATH"
-
-# ===== misc stuff =====
-
-# key bindings
+# ===== key bindings =====
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[5~" beginning-of-history
@@ -154,19 +83,20 @@ bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-# hax for tmux not enabling auto-rename
+# ===== hax for tmux not enabling auto-rename =====
 if [[ -n $TMUX ]]; then
     tmux source ~/.tmux.conf > /dev/null
 fi
 
-# ===== other Mac shit =====
-
+# ===== Mac stuff =====
 if [[ -n $OS_MAC ]]; then
     # completion on Mac
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-# Custom configuration
-ZSHRC_CUSTOM="$HOME/.zshrc_custom"
-[[ -s $ZSHRC_CUSTOM ]] && source $ZSHRC_CUSTOM
+# ===== aliases =====
+[[ -f ~/.aliases ]] && source ~/.aliases
+
+# ===== custom config =====
+[[ -f ~/.localrc ]] && source ~/.localrc
 

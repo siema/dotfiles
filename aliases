@@ -1,0 +1,36 @@
+# some colors
+if ls --color &>/dev/null; then 
+    alias ls='ls --color'
+else
+    alias ls='ls -G'
+fi
+
+alias dir='dir --color'
+alias vdir='vdir --color'
+alias grep='grep --color'
+alias fgrep='fgrep --color'
+alias egrep='egrep --color'
+
+# make it human readable
+alias ll='ls -lh'
+alias df='df -h'
+alias du='du -h'
+
+# misc aliases
+alias pidcat='pidcat --always-display-tags'
+alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn rm'
+
+if command -v systemctl &>/dev/null; then
+    alias poweroff='systemctl poweroff'
+    alias restart='systemctl restart'
+    alias suspend='systemctl suspend'
+    alias hibernate='systemctl hibernate'
+fi
+
+# functions
+ssht(){
+    ssh $1 -t 'LANG=en_US.UTF-8 tmux a || LANG=en_US.UTF-8 tmux'
+}
+
+# vim: ft=sh cms=#%s
+
