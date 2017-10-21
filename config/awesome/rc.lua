@@ -190,7 +190,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
     awful.tag.add("~", {
-        layout = awful.layout.suit.max.fullscreen,
+        layout = awful.layout.suit.max,
         screen = s,
     })
 
@@ -575,18 +575,29 @@ awful.rules.rules = {
             border_width = 0
         }
     },
-
-    { 
+    {
         rule_any = {
             class = {
                 "Steam",
+                "net-minecraft-launcher-Main",
                 "net-minecraft-bootstrap-Bootstrap",
+            }
+        }, 
+        properties = { 
+            tag = "~",
+        },
+    },
+    { 
+        rule_any = {
+            class = {
+                "streaming_client",
                 "Minecraft*",
                 "darkest.bin.x86_64",
             }
         }, 
         properties = { 
             tag = "~",
+            floating = false,
             fullscreen = true
         }
     },
@@ -643,7 +654,7 @@ client.connect_signal("request::titlebars", function(c)
             -- awful.titlebar.widget.maximizedbutton(c),
             -- awful.titlebar.widget.stickybutton   (c),
             -- awful.titlebar.widget.ontopbutton    (c),
-            -- awful.titlebar.widget.closebutton    (c),
+            awful.titlebar.widget.closebutton    (c),
             layout = wibox.layout.fixed.horizontal()
         },
         layout = wibox.layout.align.horizontal
@@ -670,7 +681,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Restore titlebar when floating
 client.connect_signal("property::floating", function (c)
-    if c.floating then
+    if c.floating and not c.maximized then
         awful.titlebar.show(c)
     else
         awful.titlebar.hide(c)
