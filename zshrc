@@ -1,16 +1,6 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# ===== detect os =====
-
-if [[ "$(uname -s)" == "Linux" ]]; then
-    OS_LINUX=true
-elif [[ "$(uname -s)" == "Darwin" ]]; then
-    OS_MAC=true
-else
-    OS_CYGWIN=true
-fi
-
 # ===== zsh config =====
 
 # don't put duplicate lines or lines starting with space in the history
@@ -24,7 +14,7 @@ SAVEHIST=1000
 # completion
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
-if [[ -n $OS_LINUX ]]; then 
+if [ "$(uname -s)" = "Linux" ]; then 
     compinit
 else
     compinit -u
@@ -32,12 +22,12 @@ fi
 _comp_options+=(globdots)
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)" && eval base16_default-dark
 
 # dircolors
 if command -v dircolors &>/dev/null; then 
-    [[ -e ~/.dircolors ]] && eval $(dircolors -b ~/.dircolors)
+    [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors)
 fi
 
 # fancy prompt with vi mode
@@ -84,19 +74,19 @@ bindkey "\e[F" end-of-line
 bindkey '^i' expand-or-complete-prefix
 
 # ===== hax for tmux not enabling auto-rename =====
-if [[ -n $TMUX ]]; then
+if [ -n "$TMUX" ]; then
     tmux source ~/.tmux.conf > /dev/null
 fi
 
 # ===== Mac stuff =====
-if [[ -n $OS_MAC ]]; then
+if [ -d /usr/local/share/zsh-completions ]; then
     # completion on Mac
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
 # ===== aliases =====
-[[ -f ~/.aliases ]] && source ~/.aliases
+[ -e ~/.aliases ] && source ~/.aliases
 
 # ===== custom config =====
-[[ -f ~/.localrc ]] && source ~/.localrc
+[ -e ~/.localrc ] && source ~/.localrc
 

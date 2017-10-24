@@ -30,9 +30,10 @@ filetype plugin indent on
 "===== colors =====
 syntax on
 set t_Co=256
-let base16colorspace=256
-set background=dark
-:silent! colors base16-default-dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 hi Normal ctermbg=none     " don't override background
 
 "===== general stuff =====

@@ -19,7 +19,7 @@ export AW_PLUGIN_MANAGER_PATH="$HOME/projects/multi/AWPluginManager"
 export TC_RESKIN_PATH="$HOME/projects/multi/TCReskin"
 
 # PATH
-if [[ -n $OS_MAC ]]; then
+if [ -n "/usr/local/bin/brew" ]; then
     export PATH="/usr/local/sbin:$PATH"
     export PATH="/usr/local/bin:$PATH"
 fi

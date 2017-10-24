@@ -32,5 +32,18 @@ ssht(){
     ssh $1 -t 'LANG=en_US.UTF-8 tmux a || LANG=en_US.UTF-8 tmux'
 }
 
+svnpcopy(){
+    SRC=$1
+    [ -e "$SRC" ] || exit
+
+    shift
+    for PROP in $(svn pl "$SRC" | tail -n +2); do
+        VALUE=$(svn pg $PROP "$SRC")
+        for DST; do
+            [ -e "$DST" ] && svn ps $PROP "$VALUE" "$DST"
+        done
+    done
+}
+
 # vim: ft=sh cms=#%s
 
