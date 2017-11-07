@@ -689,4 +689,4 @@ client.connect_signal("property::floating", function (c)
 end)
 
 -- }}}
---
+
