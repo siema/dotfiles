@@ -1,3 +1,5 @@
+### aliases
+
 # some colors
 if ls --color &>/dev/null; then 
     alias ls='ls --color'
@@ -27,11 +29,14 @@ if command -v systemctl &>/dev/null; then
     alias hibernate='systemctl hibernate'
 fi
 
-# functions
+### functions
+
+# ssh with tmux
 ssht(){
     ssh $1 -t 'LANG=en_US.UTF-8 tmux a || LANG=en_US.UTF-8 tmux'
 }
 
+# copy svn properties from one file to another
 svnpcopy(){
     SRC=$1
     [ -e "$SRC" ] || exit
@@ -43,6 +48,23 @@ svnpcopy(){
             [ -e "$DST" ] && svn ps $PROP "$VALUE" "$DST"
         done
     done
+}
+
+# remove all Android Studio and gradle files
+fuckidea(){
+    DIR=$(pwd)
+
+    if [ $# -eq 1 ]; then
+        DIR=$1
+    fi
+
+    find $DIR \( \
+        -name ".externalNativeBuild" \
+        -or -name "build" \
+        -or -name "*.iml" \
+        -or -name ".idea" \
+        -or -name ".gradle" \
+        \) -prune -exec echo {} \; -exec rm -rf {} \;
 }
 
 # vim: ft=sh cms=#%s
