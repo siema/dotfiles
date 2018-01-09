@@ -26,7 +26,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)" && eval base16_default-dark
 
 # dircolors
-if command -v dircolors &>/dev/null; then 
+if hash dircolors 2>/dev/null; then 
     [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors)
 fi
 
@@ -89,4 +89,6 @@ fi
 
 # ===== custom config =====
 [ -e ~/.localrc ] && source ~/.localrc
+
+# vim: ft=sh cms=#%s
 
