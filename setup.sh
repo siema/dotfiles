@@ -12,6 +12,7 @@ if [ "$(uname -s)" = "Linux" ]; then
     ln -sf ~/.dotfiles/dircolors ~/.dircolors
     ln -sf ~/.dotfiles/config/awesome ~/.config/awesome
     ln -sf ~/.dotfiles/config/termite ~/.config/termite
+
     if hash sudo 2>/dev/null; then
         SU_CMD="sudo"
     else
@@ -27,6 +28,8 @@ if [ "$(uname -s)" = "Linux" ]; then
     elif hash apt-get 2>/dev/null; then
         $SU_CMD apt-get install cloc cmake git imagemagick nodejs p7zip perl pidcat python python3 ruby subversion tmux vim wget zsh fonts-dejavu
     fi
+
+    git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources
 elif [ "$(uname -s)" = "Darwin" ]; then
     ln -sf ~/.dotfiles/hammerspoon ~/.hammerspoon
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
