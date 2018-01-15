@@ -190,7 +190,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
     awful.tag.add("~", {
-        layout = awful.layout.suit.max,
+        layout = awful.layout.suit.max.fullscreen,
         screen = s,
     })
 
@@ -377,7 +377,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -396,11 +396,13 @@ globalkeys = gears.table.join(
 
     -- Screen lock
     awful.key({ "Control", "Shift" }, "F12", function() awful.spawn("xscreensaver-command -lock") end,
+              {description = "lock screen", group = "awesome"}),
+    awful.key({ "Control", "Shift" }, "Escape", function() awful.spawn("xscreensaver-command -lock") end,
               {description = "lock screen", group = "awesome"})
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey,           }, "f",
+    awful.key({ modkey }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -519,7 +521,9 @@ awful.rules.rules = {
             keys = clientkeys,
             buttons = clientbuttons,
             screen = awful.screen.preferred,
-            placement = awful.placement.no_overlap+awful.placement.no_offscreen
+            placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+            titlebars_enabled = true,
+            size_hints_honor = false
         }
     },
 
@@ -554,19 +558,7 @@ awful.rules.rules = {
         }
     },
 
-    { 
-        rule_any = {
-            type = {
-                "normal",
-                "dialog"
-            }
-        }, 
-        properties = { 
-            titlebars_enabled = true, 
-            size_hints_honor = false 
-        }
-    },
-
+    -- Disable borders for normal windows
     { 
         rule = {
             type = "normal"
@@ -575,6 +567,8 @@ awful.rules.rules = {
             border_width = 0
         }
     },
+
+    -- Game launchers
     {
         rule_any = {
             class = {
@@ -585,20 +579,23 @@ awful.rules.rules = {
         }, 
         properties = { 
             tag = "~",
+            fullscreen = false,
+            maximized = true
         },
     },
+
+    -- Games
     { 
         rule_any = {
             class = {
                 "streaming_client",
                 "Minecraft*",
                 "darkest.bin.x86_64",
+                "Worms W.M.D",
             }
         }, 
         properties = { 
-            tag = "~",
-            floating = false,
-            fullscreen = true
+            tag = "~"
         }
     },
 }
@@ -609,13 +606,20 @@ awful.rules.rules = {
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
-    -- if not awesome.startup then awful.client.setslave(c) end
+    if not awesome.startup then awful.client.setslave(c) end
 
+    -- Prevent clients from being unreachable after screen count changes.
     if awesome.startup and
       not c.size_hints.user_position
       and not c.size_hints.program_position then
-        -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
+    end
+end)
+
+-- Disable floating for gaming tag
+client.connect_signal("tagged", function (c, t)
+    if t.name == "~" then
+        c.floating = false
     end
 end)
 
@@ -676,6 +680,7 @@ client.connect_signal("mouse::enter", function(c)
     end
 end)
 
+-- Toggle border depending on focused state
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
