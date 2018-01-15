@@ -228,7 +228,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            -- s.mytasklist
+            s.mytasklist
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
@@ -271,7 +271,10 @@ local function move_to_new_tag()
     local c = client.focus
     if not c then return end
 
-    local t = awful.tag.add(c.class, { screen = c.screen })
+    local t = awful.tag.add(c.class, { 
+        layout = awful.layout.suit.max.fullscreen,
+        screen = c.screen 
+    })
     c:tags({t})
     t:view_only()
 end
