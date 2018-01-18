@@ -24,10 +24,11 @@ setxkbmap pl
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+pulseaudio --start
+
 xscreensaver -no-splash &
 xss-lock -- /usr/bin/xscreensaver-command -lock &
 
-pulseaudio &
 volumeicon &
 nm-applet &
 blueman-applet &
