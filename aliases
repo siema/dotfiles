@@ -19,6 +19,7 @@ alias df='df -h'
 alias du='du -h'
 
 # misc aliases
+alias cdmount='udisksctl mount -b /dev/sr0'
 alias pidcat='pidcat --always-display-tags'
 alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn rm'
 
