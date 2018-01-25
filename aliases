@@ -19,9 +19,11 @@ alias df='df -h'
 alias du='du -h'
 
 # misc aliases
+alias xclip='xclip -selection clipboard'
 alias cdmount='udisksctl mount -b /dev/sr0'
 alias pidcat='pidcat --always-display-tags'
 alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn rm'
+alias adbren='adbren --strict --format "%anime_name_romaji%_%episode%%version%[%group_short%](%crc32%).%filetype%"'
 
 if command -v systemctl &>/dev/null; then
     alias poweroff='systemctl poweroff'
@@ -68,5 +70,5 @@ fuckidea(){
         \) -prune -exec echo {} \; -exec rm -rf {} \;
 }
 
-# vim: ft=sh cms=#%s
+# vim: ft=sh
 

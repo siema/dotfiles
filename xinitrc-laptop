@@ -31,7 +31,7 @@ xss-lock -- /usr/bin/xscreensaver-command -lock &
 
 volumeicon &
 nm-applet &
-blueman-applet &
+# blueman-applet &
 cbatticon &
 
 dropbox &
