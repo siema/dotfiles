@@ -31,3 +31,6 @@ export PATH="$ANDROID_HOME/build-tools/latest:$PATH"
 export PATH="$NDK_HOME:$PATH"
 export PATH="$HOME/.bin:$PATH"
 
+# ===== custom config =====
+[ -e ~/.localprofile ] && source ~/.localprofile
+

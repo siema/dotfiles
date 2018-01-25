@@ -91,5 +91,3 @@ fi
 # ===== custom config =====
 [ -e ~/.localrc ] && source ~/.localrc
 
-# vim: ft=sh cms=#%s
-
