@@ -35,6 +35,7 @@ nm-applet &
 cbatticon &
 
 dropbox &
+steam -silent &
 
 exec awesome
 

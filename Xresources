@@ -67,14 +67,18 @@ URxvt*shading: 10
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       string
-URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12:antialias=true:hinting=false
-URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=12:antialias=true:hinting=false
-URxvt*italicFont: xft:DejaVu Sans Mono for Powerline:italic:size=12:antialias=true:hinting=false
-URxvt*boldItalicFont: xft:DejaVu Sans Mono for Powerline:bold:italic:size=12:antialias=true:hinting=false
-!URxvt*font: xft:DejaVu Sans Mono:size=12:antialias=true:hinting=true
-!URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=12:antialias=true:hinting=true
-!URxvt*italicFont: xft:DejaVu Sans Mono:italic:size=12:antialias=true:hinting=true
-!URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:size=12:antialias=true:hinting=true
+URxvt*font: xft:DejaVuSansMono Nerd Font:size=12:antialias=true:hinting=false,\
+            xft:DejaVu Sans Mono for Powerline:size=12:antialias=true:hinting=false,\
+            xft:DejaVu Sans Mono:size=12:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVuSansMono Nerd Font:bold:size=12:antialias=true:hinting=false,\
+                xft:DejaVu Sans Mono for Powerline:bold:size=12:antialias=true:hinting=false,\
+                xft:DejaVu Sans Mono:bold:size=12:antialias=true:hinting=true
+URxvt*italicFont: xft:DejaVuSansMono Nerd Font:italic:size=12:antialias=true:hinting=false,\
+                  xft:DejaVu Sans Mono for Powerline:italic:size=12:antialias=true:hinting=false,\
+                  xft:DejaVu Sans Mono:italic:size=12:antialias=true:hinting=true
+URxvt*boldItalicFont: xft:DejaVuSansMono Nerd Font:bold:italic:size=12:antialias=true:hinting=false,\
+                      xft:DejaVu Sans Mono for Powerline:bold:italic:size=12:antialias=true:hinting=false,\
+                      xft:DejaVu Sans Mono:bold:italic:size=12:antialias=true:hinting=true
 ! URxvt*intensityStyles:                boolean
 ! URxvt*inputMethod:                    name
 ! URxvt*preeditType:                    style
