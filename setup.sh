@@ -40,6 +40,8 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     sudo gem install cocoapods
 fi
 
+git clone https://github.com/powerline/fonts /tmp/powerline-fonts && /tmp/powerline-fonts/install.sh && rm -rf /tmp/powerline-fonts
+
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
