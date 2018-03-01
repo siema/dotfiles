@@ -26,7 +26,7 @@ export SSH_AUTH_SOCK
 
 pulseaudio --start
 
-xscreensaver -no-splash &
+xscreensaver &
 xss-lock -- /usr/bin/xscreensaver-command -lock &
 
 volumeicon &
