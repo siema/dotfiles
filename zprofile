@@ -18,6 +18,9 @@ export AW_ENGINE_PATH="$HOME/projects/multi/AWEngine"
 export AW_PLUGIN_MANAGER_PATH="$HOME/projects/multi/AWPluginManager"
 export TC_RESKIN_PATH="$HOME/projects/multi/TCReskin"
 
+# Java
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+
 # PATH
 if [ -n "/usr/local/bin/brew" ]; then
     export PATH="/usr/local/sbin:$PATH"
