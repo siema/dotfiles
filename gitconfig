@@ -21,7 +21,7 @@
     aa = add --all
     ci = commit
     cia = commit -a
-    cia = commit -am
+    ciam = commit -am
     cim = commit -m
     co = checkout
     f = fetch
@@ -32,4 +32,9 @@
     lasttag = !git log --oneline `git tag | tail -1`..HEAD
     lt = !git lasttag
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+	d = difftool
 
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false

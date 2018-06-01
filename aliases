@@ -70,5 +70,18 @@ fuckidea(){
         \) -prune -exec echo {} \; -exec rm -rf {} \;
 }
 
+# wait for the process to come up and then logcat for it
+logcat(){
+    bundle="$1"
+    shift
+    while :; do 
+        pid=$(adb shell pidof "$bundle")
+        if [ -n "$pid" ]; then
+            adb logcat --pid="$pid" "$@"
+            break
+        fi
+    done
+}
+
 # vim: ft=sh
 
