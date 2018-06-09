@@ -571,6 +571,16 @@ awful.rules.rules = {
         }
     },
 
+    -- Treat Chrome Apps (pop-up) as normal windows
+    { 
+        rule = {
+            instance = "crx_.*"
+        }, 
+        properties = { 
+            floating = false
+        }
+    },
+
     -- Game launchers
     {
         rule_any = {
@@ -696,7 +706,7 @@ client.connect_signal("property::floating", function (c)
     end
 end)
 
--- Float fullscreen windows to fix insets
+-- Unfloat fullscreen windows to fix insets
 client.connect_signal("property::fullscreen", function (c)
     if c.fullscreen then
         c.floating = false
