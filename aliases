@@ -84,5 +84,27 @@ logcat(){
     done
 }
 
+# mount necessary filesystems and chroot
+mntchroot(){
+    if [ $EUID -ne 0 ]; then
+        echo "This command needs to be run as root"
+        return
+    fi
+
+    dir="$1"
+    if [ ! -e "$dir" ]; then
+        echo "Provided directory does not exist"
+        return
+    fi
+
+    mount -t proc none "$dir/proc"
+	mount --rbind /sys "$dir/sys"
+	mount --make-rslave "$dir/sys"
+	mount --rbind /dev "$dir/dev"
+	mount --make-rslave "$dir/dev"
+    cp /etc/resolv.conf "$dir/etc/"
+	chroot "$dir" /bin/bash
+}
+
 # vim: ft=sh
 
