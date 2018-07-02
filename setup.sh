@@ -31,13 +31,19 @@ if [ "$(uname -s)" = "Linux" ]; then
 
     git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources
 elif [ "$(uname -s)" = "Darwin" ]; then
+    brew -v || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    mkdir -p ~/Library/LaunchAgents
     ln -sf ~/.dotfiles/hammerspoon ~/.hammerspoon
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
     ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew tap caskroom/fonts
+    brew tap caskroom/versions
+    brew cask install java google-chrome firefox opera dropbox skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon font-dejavu-sans steam battle-net spotify discord teamspeak-client veracrypt filezilla virtualbox virtualbox-extension-pack xquartz wine-staging disk-inventory-x adobe-acrobat-reader 0xed minecraft disk-arbitrator mpv deluge android-studio slack dotnet mono-mdk visual-studio-code
     brew install ruby cloc cmake gcc git gradle imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions grep mas --with-default-names
-    brew cask install google-chrome firefox opera dropbox skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon font-dejavu-sans font-dejavu-sans-mono-for-powerline steam spotify discord teamspeak-client veracrypt filezilla virtualbox virtualbox-extension-pack wine-staging disk-inventory-x adobe-acrobat-reader 0xed minecraft disk-arbitrator mpv deluge android-studio guild-wars2
     sudo gem install cocoapods
+    echo "Adding zsh to /etc/shells..."
+    echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
+    open /usr/local/Caskroom/battle-net/latest/Battle.net-Setup.app
 fi
 
 git clone https://github.com/powerline/fonts /tmp/powerline-fonts && /tmp/powerline-fonts/install.sh && rm -rf /tmp/powerline-fonts
