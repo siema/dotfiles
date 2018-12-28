@@ -21,6 +21,9 @@ else
 fi
 _comp_options+=(globdots)
 
+# Disable errors when globbing
+unsetopt nomatch
+
 # Base16 Shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 export BASE16_SHELL_SET_BACKGROUND=false
