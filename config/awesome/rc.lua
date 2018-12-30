@@ -581,6 +581,21 @@ awful.rules.rules = {
         }
     },
 
+    -- Destiny Item Manager
+    {
+        rule_any = {
+            instance = {
+                "crx_diekafcbbmcolffflekimginbldpnioe"
+            }
+        }, 
+        properties = { 
+            tag = "3",
+            titlebars_enabled = false,
+            fullscreen = false,
+            maximized = true
+        },
+    },
+
     -- Game launchers
     {
         rule_any = {
