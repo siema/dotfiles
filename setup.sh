@@ -20,13 +20,13 @@ if [ "$(uname -s)" = "Linux" ]; then
     fi
 
     if hash pacman 2>/dev/null; then
-        $SU_CMD pacman --needed --noconfirm -S cloc cmake git imagemagick nodejs p7zip perl python python3 ruby subversion tmux vim wget zsh ttf-dejavu htop
+        $SU_CMD pacman --needed --noconfirm -S cloc cmake git git-lfs imagemagick nodejs p7zip perl python python3 ruby subversion tmux vim wget zsh ttf-dejavu htop
     elif hash emerge 2>/dev/null; then
         echo "app-misc/tmux" | $SU_CMD tee -a /etc/portage/package.accept_keywords
         echo "x11-wm/awesome" | $SU_CMD tee -a /etc/portage/package.accept_keywords
-        $SU_CMD emerge cloc cmake git imagemagick nodejs p7zip perl python ruby subversion tmux vim wget zsh dejavu
+        $SU_CMD emerge cloc cmake git git-lfs imagemagick nodejs p7zip perl python ruby subversion tmux vim wget zsh dejavu
     elif hash apt-get 2>/dev/null; then
-        $SU_CMD apt-get install cloc cmake git imagemagick nodejs p7zip perl pidcat python python3 ruby subversion tmux vim wget zsh fonts-dejavu
+        $SU_CMD apt-get install cloc cmake git git-lfs imagemagick nodejs p7zip perl pidcat python python3 ruby subversion tmux vim wget zsh fonts-dejavu
     fi
 
     git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources
