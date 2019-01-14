@@ -38,8 +38,8 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
     brew tap caskroom/fonts
     brew tap caskroom/versions
-    brew cask install java google-chrome firefox opera dropbox skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon font-dejavu-sans steam battle-net spotify discord teamspeak-client veracrypt filezilla virtualbox virtualbox-extension-pack xquartz wine-staging disk-inventory-x adobe-acrobat-reader 0xed minecraft disk-arbitrator mpv deluge android-studio slack dotnet mono-mdk visual-studio-code
-    brew install ruby cloc cmake gcc git gradle imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions grep mas --with-default-names
+    brew cask install java google-chrome firefox opera dropbox skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon font-dejavu-sans steam battle-net spotify discord teamspeak-client veracrypt virtualbox virtualbox-extension-pack xquartz wine-staging disk-inventory-x adobe-acrobat-reader 0xed minecraft disk-arbitrator mpv deluge android-studio slack dotnet mono-mdk visual-studio-code
+    brew install ruby cloc cmake gcc git imagemagick p7zip perl pidcat python subversion tmux vim wget zsh zsh-completions grep mas --with-default-names
     sudo gem install cocoapods
     echo "Adding zsh to /etc/shells..."
     echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
