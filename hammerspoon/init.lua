@@ -54,8 +54,8 @@ hs.hotkey.bind({"shift"}, "F20", function()
     end
 end)
 
--- ## Ctrl-Shift-F12 to lock screen
-hs.hotkey.bind({"ctrl", "shift"}, "F12", function()
+-- ## Ctrl-Shift-Backspace to lock screen
+hs.hotkey.bind({"ctrl", "shift"}, "delete", function()
     os.execute("pmset displaysleepnow")
 end)
 
