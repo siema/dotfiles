@@ -83,6 +83,7 @@ if [ -n "$TMUX" ]; then
 fi
 
 # ===== Mac stuff =====
+[ -e ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 if [ -d /usr/local/share/zsh-completions ]; then
     # completion on Mac
     fpath=(/usr/local/share/zsh-completions $fpath)
