@@ -20,6 +20,7 @@
     p = pull
     r = rebase
     st = status
+    mt = mergetool
 
     restash = !git stash && git rebase && git stash pop
     lasttag = !git log --oneline `git tag | tail -1`..HEAD
