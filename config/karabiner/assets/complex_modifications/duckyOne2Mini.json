@@ -1,0 +1,280 @@
+{
+    "title": "Ducky One 2 Mini layout emulation",
+    "rules": [
+        {
+            "description": "Ducky One 2 Mini: Right option to fn",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_option",
+                        "modifiers": { "optional": [ "any" ]}
+                    },
+                    "to": [{ "key_code": "fn" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Right command to right option",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_command",
+                        "modifiers": { "optional": [ "any" ]}
+                    },
+                    "to": [{ "key_code": "right_option" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Caps to Fn",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": { "optional": [ "any" ] }
+                    },
+                    "to": [ { "key_code": "fn" } ]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Space to fn or self",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": { "optional": [ "any" ] }
+                    },
+                    "to": [ { "key_code": "fn" } ],
+                    "to_if_alone": [{"key_code": "spacebar"}]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Arrow keys on i/j/k/l",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "up_arrow" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "left_arrow" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "down_arrow" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "right_arrow" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Home/End keys on [/'",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "open_bracket",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "home" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "quote",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "end" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: PgUp/PgDown on p/;",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "page_up" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "semicolon",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "page_down" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Delete on Backspace",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "delete_forward" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Functional keys on numbers",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "1",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f1" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "2",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f2" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "3",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f3" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "4",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f4" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "5",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f5" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "6",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f6" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "7",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f7" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "8",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f8" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "9",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f9" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "0",
+                        "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] }
+                    },
+                    "to": [ { "key_code": "f10" } ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "hyphen",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f11" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "equal_sign",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "f12" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Escape on §",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": { "key_code": "grave_accent_and_tilde" },
+                    "to": [{ "key_code": "escape" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "grave_accent_and_tilde",
+                        "modifiers": { "mandatory": ["fn"], "optional": ["any"] }
+                    },
+                    "to": [{ "key_code": "non_us_backslash" }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "grave_accent_and_tilde",
+                        "modifiers": { "mandatory": ["shift"] }
+                    },
+                    "to": [{ 
+                        "key_code": "non_us_backslash",
+                        "modifiers": [ "left_shift" ]
+                    }]
+                }
+            ]
+        }
+    ]
+}
