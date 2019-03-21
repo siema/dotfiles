@@ -1047,30 +1047,6 @@
                         ]
                     },
                     {
-                        "description": "Ducky One 2 Mini: Insert on Y",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "y",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "insert"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Ducky One 2 Mini: Functional keys on numbers",
                         "manipulators": [
                             {
