@@ -57,6 +57,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set modeline
 
 "===== some commonly misstyped commands =====
 command -bang -nargs=? -complete=file E e<bang> <args>
