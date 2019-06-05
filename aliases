@@ -84,6 +84,14 @@ logcat(){
     done
 }
 
+# clear screen, start logging and kill app for new debug session
+apkdebug(){
+    adb shell am force-stop "$1"
+    clear
+    tmux clear-history 
+    pidcat -c "$1"
+}
+
 # mount necessary filesystems and chroot
 mntchroot(){
     if [ $EUID -ne 0 ]; then

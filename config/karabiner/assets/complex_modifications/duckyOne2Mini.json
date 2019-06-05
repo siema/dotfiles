@@ -2,7 +2,59 @@
     "title": "Ducky One 2 Mini layout emulation",
     "rules": [
         {
-            "description": "Ducky One 2 Mini: Right option to fn",
+            "description": "Ducky One 2 Mini: Right Option to right Command",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_option",
+                        "modifiers": { "optional": [ "any" ]}
+                    },
+                    "to": [{ "key_code": "right_command" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Right Command to right Option",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_command",
+                        "modifiers": { "optional": [ "any" ]}
+                    },
+                    "to": [{ "key_code": "right_option" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Left Option to left Command",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_option",
+                        "modifiers": { "optional": [ "any" ]}
+                    },
+                    "to": [{ "key_code": "left_command" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Left Command to left Option",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_command",
+                        "modifiers": { "optional": [ "any" ]}
+                    },
+                    "to": [{ "key_code": "left_option" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: Right option to Fn",
             "manipulators": [
                 {
                     "type": "basic",
@@ -15,7 +67,20 @@
             ]
         },
         {
-            "description": "Ducky One 2 Mini: Right command to right option",
+            "description": "Ducky One 2 Mini: Application to Fn",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "application",
+                        "modifiers": { "optional": [ "any" ]}
+                    },
+                    "to": [{ "key_code": "fn" }]
+                }
+            ]
+        },
+        {
+            "description": "Ducky One 2 Mini: 0xb0 to right Option",
             "manipulators": [
                 {
                     "type": "basic",
@@ -41,7 +106,7 @@
             ]
         },
         {
-            "description": "Ducky One 2 Mini: Space to fn or self",
+            "description": "Ducky One 2 Mini: Space to Fn or self",
             "manipulators": [
                 {
                     "type": "basic",
