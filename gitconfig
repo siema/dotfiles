@@ -20,14 +20,15 @@
     r = rebase
     st = status
     mt = mergetool
+    d = difftool
 
     restash = !git stash && git rebase && git stash pop
     lasttag = !git log --oneline `git tag | tail -1`..HEAD
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
-    d = difftool
+    begone = !git branch -vv | grep 'origin/.*: gone]' | awk '{ print $1 }' | xargs git branch -d
 
 [pull]
-	rebase = true
+	rebase = false
 
 [diff]
     tool = vimdiff
