@@ -73,19 +73,28 @@ fuckidea(){
 
 # wait for the process to come up and then logcat for it
 logcat(){
-    bundle="$1"
+    BUNDLE="$1"
     shift
     while :; do 
-        pid=$(adb shell pidof "$bundle")
-        if [ -n "$pid" ]; then
-            adb logcat --pid="$pid" "$@"
+        PID=$(adb shell pidof "$BUNDLE")
+        if [ -n "$PID" ]; then
+            adb logcat --pid="$PID" "$@"
             break
         fi
     done
 }
 
 # clear screen, start logging and kill app for new debug session
-apkdebug(){
+clearlogcat(){
+    adb shell am force-stop "$1"
+    clear
+    tmux clear-history 
+    adb logcat -c
+    logcat "$1"
+}
+
+# clear screen, start logging and kill app for new debug session
+clearpidcat(){
     adb shell am force-stop "$1"
     clear
     tmux clear-history 
