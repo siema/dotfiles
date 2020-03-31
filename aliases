@@ -86,19 +86,35 @@ logcat(){
 
 # clear screen, start logging and kill app for new debug session
 clearlogcat(){
-    adb shell am force-stop "$1"
+    if [ $1 = "-s" ]; then
+        START=true
+        APPID="$2"
+    else
+        START=false
+        APPID="$1"
+    fi
+    adb shell "am force-stop $APPID"
     clear
     tmux clear-history 
     adb logcat -c
-    logcat "$1"
+    $START && adb shell "am start \$(cmd package resolve-activity --brief $APPID | tail -n1)"
+    logcat "$APPID"
 }
 
 # clear screen, start logging and kill app for new debug session
 clearpidcat(){
-    adb shell am force-stop "$1"
+    if [ $1 = "-s" ]; then
+        START=true
+        APPID="$2"
+    else
+        START=false
+        APPID="$1"
+    fi
+    adb shell "am force-stop $APPID"
     clear
     tmux clear-history 
-    pidcat -c "$1"
+    $START && adb shell "am start \$(cmd package resolve-activity --brief $APPID | tail -n1)"
+    pidcat "$APPID"
 }
 
 # mount necessary filesystems and chroot
