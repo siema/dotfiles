@@ -4,6 +4,7 @@
 
 [core]
     autocrlf = input
+	excludesfile = /Users/siema/.gitignore_global
 
 [color]
     interactive = true

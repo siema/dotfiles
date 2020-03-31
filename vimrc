@@ -16,6 +16,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tfnico/vim-gradle'
 Plugin 'darfink/vim-plist'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'shime/vim-livedown'
 
 " vim.org/vim-scripts.org plugins
 Plugin 'AfterColors.vim'
