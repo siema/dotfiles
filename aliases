@@ -96,7 +96,7 @@ clearlogcat(){
     adb shell "am force-stop $APPID"
     clear
     tmux clear-history 
-    adb logcat -c
+    adb logcat -b all -c
     $START && adb shell "am start \$(cmd package resolve-activity --brief $APPID | tail -n1)"
     logcat "$APPID"
 }
@@ -113,6 +113,7 @@ clearpidcat(){
     adb shell "am force-stop $APPID"
     clear
     tmux clear-history 
+    adb logcat -b all -c
     $START && adb shell "am start \$(cmd package resolve-activity --brief $APPID | tail -n1)"
     pidcat "$APPID"
 }
