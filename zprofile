@@ -13,14 +13,6 @@ export SVN_EDITOR='vim -c "set syntax=diff"'
 export ANDROID_HOME="$HOME/android/sdk"
 export NDK_HOME="$HOME/android/sdk/ndk-bundle"
 
-# Plugin Manager
-export PM_ROOT="$HOME/projects/unity/NewPluginManager"
-
-# AWEngine
-export AW_ENGINE_PATH="$HOME/projects/multi/AWEngine"
-export AW_PLUGIN_MANAGER_PATH="$HOME/projects/multi/AWPluginManager"
-export TC_RESKIN_PATH="$HOME/projects/multi/TCReskin"
-
 # Java
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 
