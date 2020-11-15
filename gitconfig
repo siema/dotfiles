@@ -22,6 +22,9 @@
     st = status
     mt = mergetool
     d = difftool
+    rt = reset
+    rth = reset --hard
+    cdf = clean -df
 
     restash = !git stash && git rebase && git stash pop
     lasttag = !git log --oneline `git tag | tail -1`..HEAD
@@ -31,11 +34,11 @@
 [pull]
 	rebase = false
 
-[diff]
-    tool = vimdiff
-
 [difftool]
     prompt = false
+
+[diff]
+    tool = vimdiff
 
 [include]
     path = .gitconfig_local

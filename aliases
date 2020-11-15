@@ -25,6 +25,7 @@ alias pidcat='pidcat --always-display-tags'
 alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn rm'
 alias adbren='adbren --strict --format "%anime_name_romaji%_%episode%%version%[%group_short%](%crc32%).%filetype%"'
 alias ps4wake='ps4-wake -jBW $PS4_CRED'
+alias findlib='find * -type f -not -name "*.meta" -and -not -name "resources.config" -and -not -name ".DS_Store" | sort -h'
 
 if command -v systemctl &>/dev/null; then
     alias poweroff='systemctl poweroff'
