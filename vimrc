@@ -17,6 +17,7 @@ Plugin 'tfnico/vim-gradle'
 Plugin 'darfink/vim-plist'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'shime/vim-livedown'
+Plugin 'udalov/kotlin-vim'
 
 " vim.org/vim-scripts.org plugins
 Plugin 'AfterColors.vim'
