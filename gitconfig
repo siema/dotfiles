@@ -34,11 +34,18 @@
 [pull]
 	rebase = false
 
-[difftool]
-    prompt = false
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+
+[mergetool]
+	prompt = false
 
 [diff]
     tool = vimdiff
+
+[difftool]
+    prompt = false
 
 [include]
     path = .gitconfig_local
