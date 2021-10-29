@@ -36,10 +36,12 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     ln -sf ~/.dotfiles/hammerspoon ~/.hammerspoon
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
     ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
+    brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap homebrew/cask-versions
-    brew cask install macvim google-chrome firefox opera skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon steam spotify discord teamspeak-client veracrypt virtualbox virtualbox-extension-pack xquartz wine-staging disk-inventory-x adobe-acrobat-reader 0xed minecraft mpv deluge slack dotnet mono-mdk google-backup-and-sync unity-hub jetbrains-toolbox 1password scroll-reverser
-    brew install ruby cloc cmake gcc git imagemagick p7zip perl pidcat python subversion tmux wget zsh zsh-completions grep mas
+    brew install google-chrome firefox opera skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon steam spotify discord veracrypt virtualbox virtualbox-extension-pack xquartz wine-staging disk-inventory-x adobe-acrobat-reader minecraft mpv deluge slack dotnet mono-mdk google-drive unity-hub jetbrains-toolbox 1password scroll-reverser
+    brew install --cask macvim temurin8 steelseries-gg
+    brew install ruby cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat python subversion tmux wget zsh zsh-completions grep mas
     sudo gem install cocoapods
     echo "Adding zsh to /etc/shells..."
     echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
