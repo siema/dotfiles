@@ -14,7 +14,7 @@ export ANDROID_HOME="$HOME/android/sdk"
 export NDK_HOME="$HOME/android/sdk/ndk-bundle"
 
 # Java
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 
 # PATH
 if [ -e "/usr/local/bin/brew" ]; then
