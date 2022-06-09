@@ -18,6 +18,20 @@ alias ll='ls -lh'
 alias df='df -h'
 alias du='du -h'
 
+# git gud
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias grm='git rm'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gch='git checkout HEAD'
+alias gct='git checkout --theirs'
+alias gco='git checkout --ours'
+alias grth='git reset --hard'
+alias gcdf='git clean -df'
+
 # misc aliases
 alias xclip='xclip -selection clipboard'
 alias cdmount='udisksctl mount -b /dev/sr0'
@@ -39,6 +53,15 @@ fi
 # ssh with tmux
 ssht(){
     ssh $1 -t 'LANG=en_US.UTF-8 tmux a || LANG=en_US.UTF-8 tmux'
+}
+
+# git gudder
+gcta(){
+    git checkout --theirs $1 && git add $1
+}
+
+gcoa(){
+    git checkout --ours $1 && git add $1
 }
 
 # copy svn properties from one file to another
