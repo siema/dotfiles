@@ -32,17 +32,19 @@ if [ "$(uname -s)" = "Linux" ]; then
     git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources
 elif [ "$(uname -s)" = "Darwin" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    mkdir -p ~/Library/LaunchAgents
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    #mkdir -p ~/Library/LaunchAgents
     ln -sf ~/.dotfiles/hammerspoon ~/.hammerspoon
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
-    ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
+    #ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap homebrew/cask-versions
-    brew install google-chrome firefox opera skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon steam spotify discord veracrypt virtualbox virtualbox-extension-pack xquartz wine-staging disk-inventory-x adobe-acrobat-reader minecraft mpv deluge slack dotnet mono-mdk google-drive unity-hub jetbrains-toolbox 1password scroll-reverser
-    brew install --cask macvim temurin8 steelseries-gg
-    brew install ruby cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat python subversion tmux wget zsh zsh-completions grep mas
+    brew install google-chrome firefox opera skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon steam spotify discord veracrypt xquartz wine-staging disk-inventory-x adobe-acrobat-reader minecraft homebrew/cask/mpv slack dotnet mono-mdk google-drive unity-hub jetbrains-toolbox 1password scroll-reverser adobe-creative-cloud temurin8 parallels
+    brew install ruby@2.7 cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat pyenv subversion tmux wget zsh zsh-completions grep mas gradle
     sudo gem install cocoapods
+    pyenv install 3.10:latest
+    pyenv install 2.7:latest
     echo "Adding zsh to /etc/shells..."
     echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
 fi

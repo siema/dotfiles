@@ -16,7 +16,17 @@ export NDK_HOME="$HOME/android/sdk/ndk-bundle"
 # Java
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 
+# Pyenv
+if command -v pyenv >/dev/null; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+
 # PATH
+if [ -e "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 if [ -e "/usr/local/bin/brew" ]; then
     export PATH="/usr/local/sbin:$PATH"
     export PATH="/usr/local/bin:$PATH"
