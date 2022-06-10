@@ -16,11 +16,16 @@ export NDK_HOME="$HOME/android/sdk/ndk-bundle"
 # Java
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 
-# Pyenv
+# pyenv
 if command -v pyenv >/dev/null; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
+fi
+
+# rbenv
+if command -v rbenv >/dev/null; then
+    eval "$(rbenv init -)"
 fi
 
 # PATH
