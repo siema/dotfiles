@@ -41,10 +41,19 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     brew tap homebrew/cask-fonts
     brew tap homebrew/cask-versions
     brew install google-chrome firefox opera skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon steam spotify discord veracrypt xquartz wine-staging disk-inventory-x adobe-acrobat-reader minecraft homebrew/cask/mpv slack dotnet mono-mdk google-drive unity-hub jetbrains-toolbox 1password scroll-reverser adobe-creative-cloud temurin8 parallels
-    brew install ruby@2.7 cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat pyenv subversion tmux wget zsh zsh-completions grep mas gradle
+    brew install rbenv ruby-build cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat pyenv subversion tmux wget zsh zsh-completions grep mas gradle
+    PYTHON3_VERSION="3.10.4"
+    PYTHON2_VERSION="2.7.18"
+    eval "$(pyenv init -)"
+    pyenv install $PYTHON3_VERSION 
+    pyenv install $PYTHON2_VERSION 
+    pyenv global $PYTHON3_VERSION $PYTHON2_VERSION 
+    RUBY_VERSION="2.7.6"
+    eval "$(rbenv init -)"
+    rbenv install $RUBY_VERSION
+    rbenv rehash
+    rbenv global $RUBY_VERSION
     sudo gem install cocoapods
-    pyenv install 3.10:latest
-    pyenv install 2.7:latest
     echo "Adding zsh to /etc/shells..."
     echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
 fi
