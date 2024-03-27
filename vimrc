@@ -18,6 +18,7 @@ Plugin 'darfink/vim-plist'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'shime/vim-livedown'
 Plugin 'udalov/kotlin-vim'
+Plugin 'jlanzarotta/bufexplorer'
 
 " vim.org/vim-scripts.org plugins
 Plugin 'AfterColors.vim'
@@ -60,6 +61,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set modeline
+set modelines=1
 
 "===== some commonly misstyped commands =====
 command -bang -nargs=? -complete=file E e<bang> <args>

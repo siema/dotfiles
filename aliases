@@ -40,6 +40,7 @@ alias svnclean='svn st | grep ^! | awk "{print \\" --force \\"$2}" | xargs svn r
 alias adbren='adbren --strict --format "%anime_name_romaji%_%episode%%version%[%group_short%](%crc32%).%filetype%"'
 alias ps4wake='ps4-wake -jBW $PS4_CRED'
 alias findlib='find * -type f -not -name "*.meta" -and -not -name "resources.config" -and -not -name ".DS_Store" | sort -h'
+alias dotnet6='/opt/homebrew/opt/dotnet@6/bin/dotnet'
 
 if command -v systemctl &>/dev/null; then
     alias poweroff='systemctl poweroff'
@@ -62,6 +63,24 @@ gcta(){
 
 gcoa(){
     git checkout --ours $1 && git add $1
+}
+
+# git remove tags with exclusions
+git-untag(){
+    EXCLUSIONS=()
+    while getopts "n:" OPT; do
+        case $OPT in
+            n) EXCLUSIONS+=("$OPTARG");;
+        esac
+    done
+    shift $((OPTIND -1))
+
+    for TAG in $(git tag -l); do
+        if [[ ! " ${EXCLUSIONS[*]} " =~ " ${TAG} " ]]; then
+            echo git tag -d $TAG
+            echo git push origin :refs/tags/$TAG
+        fi
+    done
 }
 
 # copy svn properties from one file to another

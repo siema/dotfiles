@@ -31,29 +31,34 @@ if [ "$(uname -s)" = "Linux" ]; then
 
     git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources
 elif [ "$(uname -s)" = "Darwin" ]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    #mkdir -p ~/Library/LaunchAgents
     ln -sf ~/.dotfiles/hammerspoon ~/.hammerspoon
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
+    #mkdir -p ~/Library/LaunchAgents
     #ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap homebrew/cask-versions
-    brew install google-chrome firefox opera skype iterm2 sublime-text tunnelblick karabiner-elements hammerspoon steam spotify discord veracrypt xquartz wine-staging disk-inventory-x adobe-acrobat-reader minecraft homebrew/cask/mpv slack dotnet mono-mdk google-drive unity-hub jetbrains-toolbox 1password scroll-reverser adobe-creative-cloud temurin8 parallels
-    brew install rbenv ruby-build cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat pyenv subversion tmux wget zsh zsh-completions grep mas gradle
-    PYTHON3_VERSION="3.10.4"
+    brew install rbenv ruby-build cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat pyenv subversion tmux wget zsh zsh-completions grep mas gradle dotnet@6
+    brew install --cask iterm2 temurin8 firefox google-chrome opera sublime-text tunnelblick scroll-reverser karabiner-elements hammerspoon jd-gui steam spotify discord veracrypt disk-inventory-x adobe-acrobat-reader minecraft mpv slack unity-hub jetbrains-toolbox 1password adobe-creative-cloud onedrive vmware-fusion
+
+    PYTHON3_VERSION="3.12.1"
     PYTHON2_VERSION="2.7.18"
     eval "$(pyenv init -)"
     pyenv install $PYTHON3_VERSION 
     pyenv install $PYTHON2_VERSION 
+    pyenv rehash
     pyenv global $PYTHON3_VERSION $PYTHON2_VERSION 
-    RUBY_VERSION="2.7.6"
+
+    RUBY_VERSION="2.7.8"
     eval "$(rbenv init -)"
     rbenv install $RUBY_VERSION
     rbenv rehash
     rbenv global $RUBY_VERSION
-    sudo gem install cocoapods
+    gem install cocoapods
+
     echo "Adding zsh to /etc/shells..."
     echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
 fi

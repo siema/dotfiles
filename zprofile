@@ -16,6 +16,22 @@ export NDK_HOME="$HOME/android/sdk/ndk-bundle"
 # Java
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 
+# PATH
+export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/tools/bin:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$ANDROID_HOME/build-tools/latest:$PATH"
+export PATH="$NDK_HOME:$PATH"
+export PATH="$HOME/.bin:$PATH"
+
+# Homebrew
+if [ -e "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+if [ -e "/usr/local/bin/brew" ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # pyenv
 if command -v pyenv >/dev/null; then
     export PYENV_ROOT="$HOME/.pyenv"
@@ -27,22 +43,6 @@ fi
 if command -v rbenv >/dev/null; then
     eval "$(rbenv init -)"
 fi
-
-# PATH
-if [ -e "/opt/homebrew/bin/brew" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-if [ -e "/usr/local/bin/brew" ]; then
-    export PATH="/usr/local/sbin:$PATH"
-    export PATH="/usr/local/bin:$PATH"
-fi
-
-export PATH="$ANDROID_HOME/tools:$PATH"
-export PATH="$ANDROID_HOME/tools/bin:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-export PATH="$ANDROID_HOME/build-tools/latest:$PATH"
-export PATH="$NDK_HOME:$PATH"
-export PATH="$HOME/.bin:$PATH"
 
 # ===== custom config =====
 [ -e ~/.localprofile ] && source ~/.localprofile
