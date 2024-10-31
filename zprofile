@@ -4,6 +4,9 @@ export CLICOLOR=1
 # wait 0.1s after key instead of 0.4
 export KEYTIMEOUT=1
 
+# locale
+export LANG=en_US.UTF-8
+
 # vim4lyfe
 export VISUAL='vim'
 export EDITOR='vim'
@@ -42,6 +45,14 @@ fi
 # rbenv
 if command -v rbenv >/dev/null; then
     eval "$(rbenv init -)"
+fi
+
+# asdf
+if [ -e "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then
+    source "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+fi
+if [ -e "/usr/local/opt/asdf/libexec/asdf.sh" ]; then
+    source "/usr/local/opt/asdf/libexec/asdf.sh"
 fi
 
 # ===== custom config =====

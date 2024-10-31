@@ -41,23 +41,30 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap homebrew/cask-versions
-    brew install rbenv ruby-build cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat pyenv subversion tmux wget zsh zsh-completions grep mas gradle dotnet@6
-    brew install --cask iterm2 temurin8 firefox google-chrome opera sublime-text tunnelblick scroll-reverser karabiner-elements hammerspoon jd-gui steam spotify discord veracrypt disk-inventory-x adobe-acrobat-reader minecraft mpv slack unity-hub jetbrains-toolbox 1password adobe-creative-cloud onedrive vmware-fusion
+    brew install cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat subversion tmux wget zsh zsh-completions grep mas dotnet@6
+    brew install --cask iterm2 temurin@11 temurin@17 firefox google-chrome opera sublime-text tunnelblick scroll-reverser karabiner-elements hammerspoon jd-gui steam spotify discord disk-inventory-x adobe-acrobat-reader minecraft stolendata-mpv slack unity-hub jetbrains-toolbox 1password adobe-creative-cloud onedrive vmware-fusion yellowdot
 
-    PYTHON3_VERSION="3.12.1"
+    source "$(brew --prefix asdf)/libexec/asdf.sh"
+
+    PYTHON3_VERSION="3.13.0"
     PYTHON2_VERSION="2.7.18"
-    eval "$(pyenv init -)"
-    pyenv install $PYTHON3_VERSION 
-    pyenv install $PYTHON2_VERSION 
-    pyenv rehash
-    pyenv global $PYTHON3_VERSION $PYTHON2_VERSION 
+    asdf plugin add python
+    asdf install python $PYTHON3_VERSION 
+    asdf install python $PYTHON2_VERSION 
+    asdf global python $PYTHON3_VERSION $PYTHON2_VERSION 
 
     RUBY_VERSION="2.7.8"
-    eval "$(rbenv init -)"
-    rbenv install $RUBY_VERSION
-    rbenv rehash
-    rbenv global $RUBY_VERSION
-    gem install cocoapods
+    asdf plugin add ruby
+    asdf install ruby $RUBY_VERSION
+    asdf global ruby $RUBY_VERSION
+    #need to specify last versions supported by ruby 2.7.8
+    gem install activesupport -v 7.1.5
+    gem install cocoapods -v 1.14.0
+
+    GRADLE_VERSION="8.4"
+    asdf plugin add gradle
+    asdf install gradle $GRADLE_VERSION
+    asdf global gradle $GRADLE_VERSION
 
     echo "Adding zsh to /etc/shells..."
     echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
