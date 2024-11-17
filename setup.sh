@@ -33,6 +33,8 @@ if [ "$(uname -s)" = "Linux" ]; then
 elif [ "$(uname -s)" = "Darwin" ]; then
     ln -sf ~/.dotfiles/hammerspoon ~/.hammerspoon
     ln -sf ~/.dotfiles/config/karabiner ~/.config/karabiner
+    mkdir -p ~/Library/Application\ Support/xbar
+    ln -sf ~/.dotfiles/Library/Application\ Support/xbar/plugins ~/Library/Application\ Support/xbar/plugins
     #mkdir -p ~/Library/LaunchAgents
     #ln -sf ~/.dotfiles/Library/LaunchAgents/pl.com.siema.env.plist ~/Library/LaunchAgents/pl.com.siema.env.plist
 
