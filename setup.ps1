@@ -1,3 +1,26 @@
-﻿Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install -y 7zip adobereader-update cdburnerxp dropbox foobar2000 gimp googlechrome inkscape irfanview irfanviewplugins jdk8 libreoffice-fresh mpv paint.net sublimetext3
-choco install -y --ignore-checksums steam
+winget install `
+    Microsoft.PowerShell `
+    Oracle.JavaRuntimeEnvironment `
+    AgileBits.1Password `
+    Mozilla.Firefox `
+    SublimeHQ.SublimeText.3 `
+    7zip.7zip `
+    Valve.Steam `
+    Adobe.Acrobat.Reader.64-bit `
+    Logitech.OptionsPlus `
+    Ryochan7.DS4Windows `
+    ViGEm.ViGEmBus `
+    Guru3D.Afterburner `
+    Guru3D.RTSS `
+    CPUID.CPU-Z `
+    TechPowerUp.GPU-Z `
+    WinDirStat.WinDirStat `
+    ClassicOldSong.Apollo `
+    IrfanSkiljan.IrfanView `
+    IrfanSkiljan.IrfanView.PlugIns `
+    mpv.net `
+    PeterPawlowski.foobar2000 `
+    GIMP.GIMP.3 `
+    Inkscape.Inkscape `
+    BlenderFoundation.Blender `
+    TheDocumentFoundation.LibreOffice
