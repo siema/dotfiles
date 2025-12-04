@@ -14,6 +14,7 @@ winget install `
     Guru3D.RTSS `
     CPUID.CPU-Z `
     TechPowerUp.GPU-Z `
+    OCBase.OCCT.Personal `
     WinDirStat.WinDirStat `
     ClassicOldSong.Apollo `
     IrfanSkiljan.IrfanView `
