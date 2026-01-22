@@ -1,5 +1,6 @@
 winget install `
     Microsoft.PowerShell `
+    astral-sh.uv `
     Oracle.JavaRuntimeEnvironment `
     AgileBits.1Password `
     Mozilla.Firefox `
