@@ -1,5 +1,6 @@
 winget install `
     Microsoft.PowerShell `
+    Git.Git `
     astral-sh.uv `
     Oracle.JavaRuntimeEnvironment `
     AgileBits.1Password `
