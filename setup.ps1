@@ -10,6 +10,7 @@ winget install `
     Valve.Steam `
     Adobe.Acrobat.Reader.64-bit `
     Logitech.OptionsPlus `
+    OpenRGB.OpenRGB `
     Ryochan7.DS4Windows `
     ViGEm.ViGEmBus `
     Guru3D.Afterburner `
