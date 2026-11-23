@@ -40,20 +40,18 @@ elif [ "$(uname -s)" = "Darwin" ]; then
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    brew tap homebrew/cask-drivers
-    brew tap homebrew/cask-fonts
-    brew tap homebrew/cask-versions
+    brew tap homebrew/cask
     brew install cloc cmake gcc git git-lfs imagemagick p7zip perl pidcat subversion tmux wget zsh zsh-completions grep mas dotnet@6
-    brew install --cask iterm2 temurin@11 temurin@17 firefox google-chrome opera sublime-text tunnelblick scroll-reverser karabiner-elements hammerspoon jd-gui steam spotify discord disk-inventory-x adobe-acrobat-reader minecraft stolendata-mpv slack unity-hub jetbrains-toolbox 1password adobe-creative-cloud onedrive vmware-fusion yellowdot
+    brew install --cask iterm2 temurin@8 temurin@11 temurin@17 firefox google-chrome opera sublime-text scroll-reverser karabiner-elements hammerspoon steam spotify discord disk-inventory-x adobe-acrobat-reader minecraft stolendata-mpv slack unity-hub jetbrains-toolbox 1password adobe-creative-cloud yellowdot jottacloud
 
     source "$(brew --prefix asdf)/libexec/asdf.sh"
 
-    PYTHON3_VERSION="3.13.0"
+    PYTHON3_VERSION="3.13.18"
     PYTHON2_VERSION="2.7.18"
     asdf plugin add python
     asdf install python $PYTHON3_VERSION 
     asdf install python $PYTHON2_VERSION 
-    asdf global python $PYTHON3_VERSION $PYTHON2_VERSION 
+    asdf set -u python $PYTHON3_VERSION $PYTHON2_VERSION 
 
     RUBY_VERSION="2.7.8"
     asdf plugin add ruby
