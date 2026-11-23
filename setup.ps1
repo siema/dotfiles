@@ -10,11 +10,12 @@ winget install `
     Valve.Steam `
     Adobe.Acrobat.Reader.64-bit `
     Logitech.OptionsPlus `
-    OpenRGB.OpenRGB `
     Ryochan7.DS4Windows `
     ViGEm.ViGEmBus `
     Guru3D.Afterburner `
     Guru3D.RTSS `
+    OpenRGB.OpenRGB `
+    Rem0o.FanControl `
     CPUID.CPU-Z `
     TechPowerUp.GPU-Z `
     OCBase.OCCT.Personal `
@@ -25,6 +26,4 @@ winget install `
     mpv.net `
     PeterPawlowski.foobar2000 `
     GIMP.GIMP.3 `
-    Inkscape.Inkscape `
-    BlenderFoundation.Blender `
     TheDocumentFoundation.LibreOffice
